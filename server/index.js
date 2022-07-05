@@ -8,8 +8,11 @@ const authRouter = require('./routes/auth');
 //init
 const app = express();
 const PORT = 3000;
-const DB = "mongodb+srv://awais:Awais@8900@cluster0.j1f0rjd.mongodb.net/?retryWrites=true&w=majority";
+const DB = "mongodb+srv://awais:awais@cluster0.orznk0u.mongodb.net/?retryWrites=true&w=majority";
+
+
 //middleware
+app.use(express.json());
 app.use(authRouter);
 
 //connection
