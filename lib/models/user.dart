@@ -4,7 +4,7 @@ import 'dart:convert';
 class User {
   final String id;
   final String name;
-final String email;
+  final String email;
   final String password;
   final String address;
 
@@ -15,18 +15,18 @@ final String email;
   User({
     required this.id,
     required this.name,
-   required this.email,
+    required this.email,
     required this.password,
     required this.address,
     required this.type,
-    required  this.token,
-   } );
+    required this.token,
+  });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
       'name': name,
-      'email':email,
+      'email': email,
       'password': password,
       'address': address,
       'type': type,
@@ -40,7 +40,7 @@ final String email;
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       password: map['password'] ?? '',
-      address: map['address']?? '',
+      address: map['address'] ?? '',
       type: map['type'] ?? '',
       token: map['token'] ?? '',
     );
@@ -48,5 +48,6 @@ final String email;
 
   String toJson() => json.encode(toMap());
 
-  factory User.fromJson(String source) => User.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory User.fromJson(String source) =>
+      User.fromMap(json.decode(source) as Map<String, dynamic>);
 }
