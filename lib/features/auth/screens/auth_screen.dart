@@ -1,7 +1,7 @@
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/custom_textfield.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/auth/services/auth_services.dart';
+import 'package:amazon_clone/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {
@@ -23,7 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
 
-  final AuthServices authServices = AuthServices();
+  final AuthService authService = AuthService();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -38,7 +38,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   void signUpUser() {
-    authServices.signUpUser(
+    authService.signUpUser(
       context: context,
       email: _emailController.text,
       password: _passwordController.text,
@@ -47,7 +47,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   void signInUser() {
-    authServices.signInUser(
+    authService.signInUser(
       context: context,
       email: _emailController.text,
       password: _passwordController.text,
