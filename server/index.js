@@ -1,6 +1,7 @@
 //import package
 const express = require('express');
 const mongoose = require('mongoose');
+const adminRouter = require('./routes/admin');
 
 //import other file
 const authRouter = require('./routes/auth');
@@ -14,7 +15,7 @@ const DB = "mongodb+srv://awais:awais@cluster0.orznk0u.mongodb.net/?retryWrites=
 //middleware
 app.use(express.json());
 app.use(authRouter);
-
+app.use(adminRouter);
 //connection
 mongoose.connect(DB).then(() => { console.log('connection success'); }).catch((e) => { console.log(e); });
 
