@@ -26,7 +26,7 @@ class _PostsScreenState extends State<PostsScreen> {
     products = await adminServices.fetchAllProducts(context);
     setState(() {});
   }
-  
+
   void deleteProduct(Product product, int index) {
     adminServices.deleteProduct(
       context: context,
@@ -50,7 +50,9 @@ class _PostsScreenState extends State<PostsScreen> {
             body: GridView.builder(
               itemCount: products!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
+                crossAxisCount: 2,
+                childAspectRatio: 0.75,
+              ),
               itemBuilder: (context, index) {
                 final productData = products![index];
                 return Column(
@@ -90,5 +92,6 @@ class _PostsScreenState extends State<PostsScreen> {
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,
-          );}
+          );
+  }
 }

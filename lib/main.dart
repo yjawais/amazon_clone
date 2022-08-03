@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? Provider.of<UserProvider>(context).user.type == 'user'
+          ? Provider.of<UserProvider>(context).user.type == 'user'//check condition gor showing admin screen
               ? const BottomBar()
               : const AdminScreen()
           : const AuthScreen(),
