@@ -16,6 +16,7 @@ const DB = "mongodb+srv://awais:awais@cluster0.orznk0u.mongodb.net/?retryWrites=
 app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
+app.use(productRouter);
 //connection
 mongoose.connect(DB).then(() => { console.log('connection success'); }).catch((e) => { console.log(e); });
 
