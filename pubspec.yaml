@@ -38,6 +38,7 @@ dependencies:
   dotted_border: ^2.0.0+2
   file_picker: ^4.5.1
   cloudinary_public: ^0.11.0
+  flutter_rating_bar: ^4.0.0
   
 dev_dependencies:
   flutter_lints: ^1.0.0
