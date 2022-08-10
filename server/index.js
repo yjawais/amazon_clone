@@ -1,10 +1,11 @@
 //import package
 const express = require('express');
 const mongoose = require('mongoose');
-const adminRouter = require('./routes/admin');
 
 //import other file
 const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin');
+const productRouter = require('./routes/product');
 
 //init
 const app = express();
