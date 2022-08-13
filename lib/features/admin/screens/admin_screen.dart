@@ -1,4 +1,5 @@
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/admin/screens/analytics_screen.dart';
 import 'package:amazon_clone/features/admin/screens/orders_screen.dart';
 import 'package:amazon_clone/features/admin/screens/posts_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ void updatePage(int page){
 
 List<Widget> pages=[
 const PostsScreen(),
-const Text('cart'),
+const AnalyticsScreen(),
 const OrdersScreen(),
 
 ];
