@@ -40,6 +40,7 @@ dependencies:
   cloudinary_public: ^0.11.0
   flutter_rating_bar: ^4.0.0
   pay: ^1.0.10
+  intl: ^0.17.0
     
 dev_dependencies:
   flutter_lints: ^1.0.0
