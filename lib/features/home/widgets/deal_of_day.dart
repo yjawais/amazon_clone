@@ -12,7 +12,7 @@ class DealOfDay extends StatefulWidget {
 }
 
 class _DealOfDayState extends State<DealOfDay> {
-    Product? product;
+  Product? product;
   final HomeServices homeServices = HomeServices();
 
   @override
@@ -33,9 +33,10 @@ class _DealOfDayState extends State<DealOfDay> {
       arguments: product,
     );
   }
+
   @override
   Widget build(BuildContext context) {
-    return  product == null
+    return product == null
         ? const Loader()
         : product!.name.isEmpty
             ? const SizedBox()
@@ -51,24 +52,26 @@ class _DealOfDayState extends State<DealOfDay> {
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
+                    const SizedBox(height: 10),
                     Image.network(
                       product!.images[0],
-                      height: 235,
+                      height: 200,
                       fit: BoxFit.fitHeight,
                     ),
+                    const SizedBox(height: 10),
                     Container(
                       padding: const EdgeInsets.only(left: 15),
                       alignment: Alignment.topLeft,
-                      child:  Text(
-                      ' Rs. ${product!.price.toString()}',
-                        style:const TextStyle(fontSize: 18),
+                      child: Text(
+                        'Rs. ${product!.price}',
+                        style: const TextStyle(fontSize: 18),
                       ),
                     ),
                     Container(
                       alignment: Alignment.topLeft,
                       padding:
                           const EdgeInsets.only(left: 15, top: 5, right: 40),
-                      child:  Text(
+                      child: Text(
                         product!.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,

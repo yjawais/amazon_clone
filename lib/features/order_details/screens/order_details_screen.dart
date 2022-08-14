@@ -39,7 +39,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
   void changeOrderStatus(int status) {
     adminServices.changeOrderStatus(
       context: context,
-      status: status + 1,
+      status: status < 3 ? status + 1 : 3,
       order: widget.order,
       onSuccess: () {
         setState(() {
@@ -150,8 +150,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Order Date:      ${DateFormat().format(DateTime.fromMillisecondsSinceEpoch(widget.order.orderedAt),)}'),
-                    Text('Order ID:        ${widget.order.id}'),
+                    Text('Order Date:      ${DateFormat().format(
+                      DateTime.fromMillisecondsSinceEpoch(
+                          widget.order.orderedAt),
+                    )}'),
+                    Text('Order ID:         ${widget.order.id}'),
                     Text('Order Total:     Rs. ${widget.order.totalPrice}'),
                   ],
                 ),
@@ -226,7 +229,12 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     if (user.type == 'admin') {
                       return CustomButton(
                         text: 'Done',
-                        onTap: () => changeOrderStatus(details.currentStep),
+                        onTap: () {
+                          changeOrderStatus(details.currentStep);
+                          // if (currentStep > 3) {
+                          //   Navigator.of(context).pop();
+                          // }
+                        },
                       );
                     }
                     return const SizedBox();

@@ -92,8 +92,27 @@ class _OrdersState extends State<Orders> {
                           arguments: orders![index],
                         );
                       },
-                      child: SingleProduct(
-                        image: orders![index].products[0].images[0],
+                      child: SizedBox(
+                        height: 200,
+                        child: Column(
+                          children: [
+                            SingleProduct(
+                              image: orders![index].products[0].images[0],
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Text(
+                                    orders![index].products[0].name,
+                                  ),
+                                  Text(
+                                    'Rs. ${orders![index].products[0].price}',
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },
