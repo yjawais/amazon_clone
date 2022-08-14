@@ -47,43 +47,54 @@ class _PostsScreenState extends State<PostsScreen> {
     return products == null
         ? const Loader()
         : Scaffold(
-            body: GridView.builder(
-              itemCount: products!.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.75,
-              ),
-              itemBuilder: (context, index) {
-                final productData = products![index];
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: 140,
-                      child: SingleProduct(
-                        image: productData.images[0],
-                      ),
+            body: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: GridView.builder(
+                itemCount: products!.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.85,
+                  mainAxisSpacing: 2,
+                  crossAxisSpacing: 2,
+                ),
+                itemBuilder: (context, index) {
+                  final productData = products![index];
+                  return Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color:Colors.black12,width:2,),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    padding: const EdgeInsets.all(4.0),
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: Text(
-                            productData.name,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                        SizedBox(
+                          height: 140,
+                          child: SingleProduct(
+                            image: productData.images[0],
                           ),
                         ),
-                        IconButton(
-                          onPressed: () => deleteProduct(productData, index),
-                          icon: const Icon(
-                            Icons.delete_outline,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                productData.name,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () => deleteProduct(productData, index),
+                              icon: const Icon(
+                                Icons.delete_outline,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                );
-              },
+                  );
+                },
+              ),
             ),
             floatingActionButton: FloatingActionButton(
               child: const Icon(Icons.add),
