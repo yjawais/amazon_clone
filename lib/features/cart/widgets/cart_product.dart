@@ -59,7 +59,7 @@ class _CartProductState extends State<CartProduct> {
               Column(
                 children: [
                   Container(
-                    width: 235,
+                    width: 200,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       product.name,
@@ -70,7 +70,7 @@ class _CartProductState extends State<CartProduct> {
                     ),
                   ),
                   Container(
-                    width: 235,
+                    width: 200,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       'Rs. ${product.price}',
@@ -82,12 +82,12 @@ class _CartProductState extends State<CartProduct> {
                     ),
                   ),
                   Container(
-                    width: 235,
+                    width: 200,
                     padding: const EdgeInsets.only(left: 10),
                     child: const Text('Eligible for FREE Shipping'),
                   ),
                   Container(
-                    width: 235,
+                    width: 200,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: const Text(
                       'In Stock',
