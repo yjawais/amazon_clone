@@ -12,28 +12,26 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
-   int _page = 0;
+  int _page = 0;
   double bottomBarWidth = 42;
   double bottomBarBorderWidth = 5;
 
-void updatePage(int page){
-  setState(() {
-    _page=page;
-  });
-}
+  void updatePage(int page) {
+    setState(() {
+      _page = page;
+    });
+  }
 
-List<Widget> pages=[
-const PostsScreen(),
-const AnalyticsScreen(),
-const OrdersScreen(),
-
-];
-
+  List<Widget> pages = [
+    const PostsScreen(),
+    const AnalyticsScreen(),
+    const OrdersScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
+      appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
           flexibleSpace: Container(
@@ -53,18 +51,19 @@ const OrdersScreen(),
                   color: Colors.black,
                 ),
               ),
-             const Text('Admin',style: TextStyle(
-               color: Colors.black,
-               fontWeight: FontWeight.bold,
-             ),),
+              const Text(
+                'Admin',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
       ),
-         
-         
-          body: pages[_page],
-         bottomNavigationBar: BottomNavigationBar(
+      body: pages[_page],
+      bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,
         selectedItemColor: GlobalVariables.selectedNavBarColor,
         unselectedItemColor: GlobalVariables.unselectedNavBarColor,
@@ -110,7 +109,7 @@ const OrdersScreen(),
               ),
               label: ''),
 //orders
-              BottomNavigationBarItem(
+          BottomNavigationBarItem(
               icon: Container(
                 width: bottomBarWidth,
                 decoration: BoxDecoration(
@@ -128,9 +127,8 @@ const OrdersScreen(),
                 ),
               ),
               label: ''),
-       ],
+        ],
       ),
-   
     );
   }
 }

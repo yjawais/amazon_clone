@@ -47,7 +47,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 ),
               ),
               Container(
-                padding:const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 height: 250,
                 child: CategoryProductsChart(seriesList: [
                   charts.Series(
@@ -61,10 +61,34 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
               const SizedBox(height: 100),
               SizedBox(
                 height: 50,
-                width:150,
-                child: AccountButton(
-                  text: 'Log Out',
-                  onTap: () => AccountServices().logOut(context),
+                width: 150,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 0.0,
+                    ),
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.white,
+                  ),
+                  child: OutlinedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black12.withOpacity(0.03),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                    onPressed: () => AccountServices().logOut(context),
+                    child: const Text(
+                      'Log Out',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

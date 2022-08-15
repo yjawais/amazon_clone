@@ -43,7 +43,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
       order: widget.order,
       onSuccess: () {
         setState(() {
-          currentStep += 1;
+          currentStep == 3 ? currentStep == 3 : currentStep += 1;
         });
       },
     );
@@ -276,7 +276,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         'Your order has been delivered and signed by you!',
                       ),
                       isActive: currentStep >= 3,
-                      state: currentStep == 3
+                      state: currentStep >= 3
                           ? StepState.complete
                           : StepState.indexed,
                     ),
