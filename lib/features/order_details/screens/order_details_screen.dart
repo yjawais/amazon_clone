@@ -154,7 +154,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       DateTime.fromMillisecondsSinceEpoch(
                           widget.order.orderedAt),
                     )}'),
-                    Text('Order ID:         ${widget.order.id}'),
+                    Text('Order ID:          ${widget.order.id}'),
                     Text('Order Total:     Rs. ${widget.order.totalPrice}'),
                   ],
                 ),
@@ -194,6 +194,14 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   style: const TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                 Text(
+                                  widget.order.products[i].description,
+                                  style: const TextStyle(
+                                    fontSize: 15,
                                   ),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
