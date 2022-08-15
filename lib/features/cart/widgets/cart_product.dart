@@ -1,4 +1,3 @@
-
 import 'package:amazon_clone/features/cart/services/cart_services.dart';
 import 'package:amazon_clone/features/product_details/services/product_details_services.dart';
 import 'package:amazon_clone/models/product.dart';
@@ -89,10 +88,10 @@ class _CartProductState extends State<CartProduct> {
                   Container(
                     width: 200,
                     padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: const Text(
-                      'In Stock',
+                    child: Text(
+                      product.quantity == 0 ? 'Out of Stock' : 'In Stock',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: product.quantity == 0 ? Colors.red : Colors.teal,
                       ),
                       maxLines: 2,
                     ),

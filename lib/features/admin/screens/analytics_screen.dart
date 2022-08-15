@@ -46,7 +46,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              Container(
+                padding:const EdgeInsets.all(8),
                 height: 250,
                 child: CategoryProductsChart(seriesList: [
                   charts.Series(

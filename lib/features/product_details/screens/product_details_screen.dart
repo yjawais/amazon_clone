@@ -1,4 +1,3 @@
-
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/stars.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
@@ -9,7 +8,6 @@ import 'package:amazon_clone/models/product.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +31,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   double myRating = 0;
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     double totalRating = 0;
     for (int i = 0; i < widget.product.rating!.length; i++) {
@@ -60,11 +58,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     );
   }
 
-    void navigateToAddress(double sum) {
+  void buyNow() {
+    productDetailsServices.buyNow(
+      context: context,
+      product: widget.product,
+    );
     Navigator.pushNamed(
       context,
       AddressScreen.routeName,
-      arguments: sum.toString(),
+      arguments: widget.product.price.toString(),
     );
   }
 
@@ -225,21 +227,37 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               color: Colors.black12,
               height: 5,
             ),
+            
             Padding(
-              padding: const EdgeInsets.all(10),
-              child: CustomButton(
-                text: 'Buy Now',
-                onTap: () => navigateToAddress(widget.product.price),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: CustomButton(
-                text: 'Add to Cart',
-                onTap: addToCart,
-                color: const Color.fromRGBO(254, 216, 19, 1),
-              ),
+              padding: const EdgeInsets.all(8.0),
+              child: widget.product.quantity == 0
+                  ? const Text(
+                      'Out Of Stock',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 18,
+                      ),
+                    )
+                  : Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CustomButton(
+                            text: 'Buy Now',
+                            onTap: buyNow,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CustomButton(
+                            text: 'Add to Cart',
+                            onTap: addToCart,
+                            color: const Color.fromRGBO(254, 216, 19, 1),
+                          ),
+                        ),
+                      ],
+                    ),
             ),
             const SizedBox(height: 10),
             Container(

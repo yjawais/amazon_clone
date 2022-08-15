@@ -231,9 +231,9 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         text: 'Done',
                         onTap: () {
                           changeOrderStatus(details.currentStep);
-                          // if (currentStep > 3) {
-                          //   Navigator.of(context).pop();
-                          // }
+                          if (currentStep == 3) {
+                            Navigator.of(context).pop();
+                          }
                         },
                       );
                     }
@@ -276,7 +276,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                         'Your order has been delivered and signed by you!',
                       ),
                       isActive: currentStep >= 3,
-                      state: currentStep >= 3
+                      state: currentStep == 3
                           ? StepState.complete
                           : StepState.indexed,
                     ),

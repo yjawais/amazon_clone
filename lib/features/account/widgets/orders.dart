@@ -74,7 +74,7 @@ class _OrdersState extends State<Orders> {
               ),
               //display all order
               Container(
-                height: 170,
+                height: 185,
                 padding: const EdgeInsets.only(
                   left: 10,
                   top: 20,
@@ -82,6 +82,7 @@ class _OrdersState extends State<Orders> {
                 ),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
+                  itemExtent: 200,
                   itemCount: orders!.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
@@ -92,25 +93,38 @@ class _OrdersState extends State<Orders> {
                           arguments: orders![index],
                         );
                       },
-                      child: SizedBox(
-                        height: 200,
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black12,
+                            width: 1,
+                          ),
+                        ),
                         child: Column(
                           children: [
-                            SingleProduct(
-                              image: orders![index].products[0].images[0],
+                            SizedBox(
+                              height: 135,
+                              child: SingleProduct(
+                                image: orders![index].products[0].images[0],
+                              ),
                             ),
-                            Expanded(
+                            SizedBox(
+                              height: 20,
                               child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     orders![index].products[0].name,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
                                     'Rs. ${orders![index].products[0].price}',
                                   ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

@@ -78,7 +78,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
-                      childAspectRatio: 1.4,
+                      childAspectRatio: 1.5,
                       mainAxisSpacing: 10,
                     ),
                     itemBuilder: (context, index) {
