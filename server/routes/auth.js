@@ -68,8 +68,12 @@ authRouter.post("/tokenIsValid", async (req, res) => {
 
 //get user data
 authRouter.get("/", auth, async (req, res) => {
+  try{
   const user = await User.findById(req.user);
   res.json({ ...user._doc, token: req.token });
+} catch (e) {
+  res.status(500).json({ error: e.message });
+}
 });
 
 module.exports = authRouter;

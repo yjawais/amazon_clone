@@ -70,16 +70,15 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 170,
+                  height: MediaQuery.of(context).size.height * 0.8,
                   child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     itemCount: productList!.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      childAspectRatio: 1.5,
-                      mainAxisSpacing: 10,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 4,
+                      crossAxisSpacing: 4,
                     ),
                     itemBuilder: (context, index) {
                       final product = productList![index];
@@ -91,39 +90,61 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                             arguments: product,
                           );
                         },
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 130,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                    width: 0.5,
+                        child: Container(
+                          height: 190,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black12,
+                              width: 1,
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 130,
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.black12,
+                                      width: 0.5,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Image.network(
+                                      product.images[0],
+                                    ),
                                   ),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Image.network(
-                                    product.images[0],
+                              ),
+                              Container(
+                                height: 30,
+                                padding: const EdgeInsets.only(
+                                  left: 0,
+                                  top: 5,
+                                  right: 5,
+                                ),
+                                child:Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      SizedBox(
+                                        width: 50,
+                                        child: Text(
+                                          product.name,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Rs. ${product.price}',
+                                        maxLines: 1,
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              alignment: Alignment.topLeft,
-                              padding: const EdgeInsets.only(
-                                left: 0,
-                                top: 5,
-                                right: 15,
-                              ),
-                              child: Text(
-                                product.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
+                              
+                            ],
+                          ),
                         ),
                       );
                     },
