@@ -74,72 +74,72 @@ class _OrdersState extends State<Orders> {
               ),
               //display all order
               orders!.isEmpty
-                    ?const Padding(
+                  ? const Padding(
                       padding: EdgeInsets.all(15.0),
-
-                      child:  Center(
-                          child: Text('No orders made!'),
-                        ),
+                      child: Center(
+                        child: Text('No orders made!'),
+                      ),
                     )
-              :Container(
-                height: 185,
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  top: 20,
-                  right: 0,
-                ),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemExtent: 200,
-                  itemCount: orders!.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          OrderDetailScreen.routeName,
-                          arguments: orders![index],
-                        );
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black12,
-                            width: 1,
-                          ),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 135,
-                              child: SingleProduct(
-                                image: orders![index].products[0].images[0],
+                  : Container(
+                      height: 185,
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        top: 20,
+                        right: 0,
+                      ),
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemExtent: 200,
+                        itemCount: orders!.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                OrderDetailScreen.routeName,
+                                arguments: orders![index],
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black12,
+                                  width: 1,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                              child: Column(
                                 children: [
-                                  Text(
-                                    orders![index].products[0].name,
-                                    overflow: TextOverflow.ellipsis,
+                                  SizedBox(
+                                    height: 135,
+                                    child: SingleProduct(
+                                      image:
+                                          orders![index].products[0].images[0],
+                                    ),
                                   ),
-                                  Text(
-                                    'Rs. ${orders![index].products[0].price}',
+                                  SizedBox(
+                                    height: 20,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text(
+                                          orders![index].products[0].name,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        Text(
+                                          'Rs. ${orders![index].products[0].price}',
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
-              ),
+                    ),
             ],
           );
   }

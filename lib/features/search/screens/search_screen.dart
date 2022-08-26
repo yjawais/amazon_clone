@@ -121,13 +121,13 @@ class _SearchScreenState extends State<SearchScreen> {
                 const AddressBox(),
                 const SizedBox(height: 10),
                 products!.isEmpty
-                  ? const Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Center(
-                        child: Text('No such products found!'),
-                      ),
-                    )
-                  : Expanded(
+                    ? const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Center(
+                          child: Text('No such products found!'),
+                        ),
+                      )
+                    : Expanded(
                         child: ListView.builder(
                           itemCount: products!.length,
                           itemBuilder: (context, index) {
