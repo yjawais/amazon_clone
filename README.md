@@ -1,16 +1,57 @@
-# amazon_clone
+# Amazon Clone
 
-A new Flutter project.
+Full Stack Amazon Clone along with Admin Panel
 
-## Getting Started
+## Features
+- Email & Password Authentication
+- Persisting Auth State
+- Searching Products
+- Filtering Products (Based on Category)
+- Product Details
+- Rating
+- Getting Deal of the Day
+- Cart
+- Buy Now 
+- Checking out with Google Pay
+- Viewing My Orders
+- Viewing Order Details & Status
+- Sign Out
+- Admin Panel
+    - Viewing All Products
+    - Adding Products
+    - Deleting Products
+    - Viewing Orders
+    - Changing Order Status
+    - Viewing Total Earnings
+    - Viewing Category Based Earnings (on Graph)
 
-This project is a starting point for a Flutter application.
+## Running Locally
+After cloning this repository, migrate to ```amazon_clone``` folder. Then, follow the following steps:
+- Create MongoDB Project & Cluster
+- Click on Connect, follow the process where you will get the uri.- Replace the MongoDB uri with yours in ```server/index.js```.
+- Head to ```lib/constants/global_variables.dart``` file, replace <yourip> with your IP Address. 
+- Create Cloudinary Project, enable unsigned operation in settings.
+- Head to ```lib/features/admin/services/admin_services.dart```, replace ```cloud_name``` and ```upload_preset``` with your Cloud Name and Upload Preset respectively.
 
-A few resources to get you started if this is your first Flutter project:
+Then run the following commands to run your app:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Server Side
+```bash
+  cd server
+  npm install
+  npm run dev (for continuous development)
+  OR
+  npm start (to run script 1 time)
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Client Side
+```bash
+  flutter pub get
+  flutter run
+```
+
+## Tech Used
+**Server Side**: Node.js, Express, Mongoose, MongoDB, Cloudinary (for cloud storage)
+
+**Client Side**: Flutter, Provider
+    
