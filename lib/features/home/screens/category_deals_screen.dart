@@ -69,6 +69,14 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                     ),
                   ),
                 ),
+                productList!.isEmpty
+                  ? const Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Center(
+                        child: Text('No products available right now!'),
+                      ),
+                    )
+                  :
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.8,
                   child: GridView.builder(

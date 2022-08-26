@@ -73,7 +73,15 @@ class _OrdersState extends State<Orders> {
                 ],
               ),
               //display all order
-              Container(
+              orders!.isEmpty
+                    ?const Padding(
+                      padding: EdgeInsets.all(15.0),
+
+                      child:  Center(
+                          child: Text('No orders made!'),
+                        ),
+                    )
+              :Container(
                 height: 185,
                 padding: const EdgeInsets.only(
                   left: 10,

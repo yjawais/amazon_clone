@@ -8,7 +8,7 @@ import 'package:amazon_clone/models/product.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
-    static const String routeName = '/search-screen';
+  static const String routeName = '/search-screen';
   final String searchQuery;
   const SearchScreen({
     Key? key,
@@ -20,7 +20,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-   List<Product>? products;
+  List<Product>? products;
   final SearchServices searchServices = SearchServices();
 
   @override
@@ -38,6 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,25 +120,32 @@ class _SearchScreenState extends State<SearchScreen> {
               children: [
                 const AddressBox(),
                 const SizedBox(height: 10),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: products!.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            ProductDetailScreen.routeName,
-                            arguments: products![index],
-                          );
-                        },
-                        child: SearchedProduct(
-                          product: products![index],
+                products!.isEmpty
+                  ? const Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Center(
+                        child: Text('No such products found!'),
+                      ),
+                    )
+                  : Expanded(
+                        child: ListView.builder(
+                          itemCount: products!.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  ProductDetailScreen.routeName,
+                                  arguments: products![index],
+                                );
+                              },
+                              child: SearchedProduct(
+                                product: products![index],
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
-                ),
+                      ),
               ],
             ),
     );
