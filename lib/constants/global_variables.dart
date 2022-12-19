@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String uri='https://awais-amazon-clone.herokuapp.com';
+String uri='https://awais-amazon-clone.cyclic.app';
 
 
 class GlobalVariables {
